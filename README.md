@@ -1,36 +1,94 @@
-# \# ms-algashop-meta
+# ms-algashop-meta
 
-# 
+Projeto em desenvolvimento para estudo e prática de e-commerce com arquitetura de microserviços, foco em Domain-Driven Design (DDD), modelagem de domínio e regras de negócio.
 
-# Projeto de e-commerce baseado em microserviços, com foco em domínio, DDD e arquitetura orientada a eventos.
+## Status do projeto
 
-# 
+Em andamento.
 
-# \## Estrutura
+Este repositório está sendo evoluído para estudar e aplicar conceitos de:
+- microserviços
+- DDD
+- agregados e entidades
+- value objects
+- testes de domínio
+- modelagem de pedidos e clientes
 
-# \- `microservices/ms-algashop-ordering` - microsserviço de pedidos
+## Estrutura do repositório
 
-# \- `docs/` - documentação do projeto
+```text
+ms-algashop-meta/
+├── README.md
+├── .gitignore
+├── docs/
+│   └── docs/
+└── microservices/
+    └── ms-algashop-ordering/
+```
 
-# 
+### Microserviço principal
 
-# \## Tecnologias
+- `microservices/ms-algashop-ordering` - microsserviço responsável pela gestão de pedidos e regras de negócio do domínio.
 
-# \- Java
+### Documentação
 
-# \- Spring Boot
+- `docs/` - material de apoio, anotações e documentação do projeto.
 
-# \- Gradle
+## Tecnologias
 
-# \- DDD
+- Java
+- Spring Boot
+- Gradle
+- JUnit
+- DDD / modelagem de domínio
 
-# 
+## Visão geral da arquitetura
 
-# \## Como executar
+O projeto está sendo organizado com foco em isolamento de responsabilidades e modelagem do domínio, seguindo uma abordagem de microsserviços e DDD.
 
-# ```bash
+### Módulos em estudo
 
-# cd microservices/ms-algashop-ordering
+- `Customer`
+- `Order`
+- `OrderItem`
+- `Money`
+- `Quantity`
+- `BillingInfo`
+- `ShippingInfo`
+- `Domain exceptions`
+- `Value objects`
+- `Domain validation`
 
-# ./gradlew bootRun
+## Como executar
+
+Acesse o microsserviço e execute:
+
+```bash
+cd microservices/ms-algashop-ordering
+./gradlew bootRun
+```
+
+Se estiver no Windows:
+
+```powershell
+cd microservices\ms-algashop-ordering
+gradlew.bat bootRun
+```
+
+## Próximos passos
+
+- finalizar modelagem do domínio
+- revisar regras de negócio do pedido
+- implementar serviços de aplicação
+- adicionar persistência e banco de dados
+- expandir para outros microsserviços
+- melhorar documentação e arquitetura geral
+
+## Observação
+
+Este repositório é um projeto de estudo e evolução contínua. A estrutura e as implementações podem mudar ao longo do desenvolvimento conforme os conceitos forem sendo aprofundados.
+
+## Repositório
+
+- GitHub: https://github.com/marcello222/ms-algashop-meta
 
