@@ -1,0 +1,71 @@
+Skip to content
+
+Search Gists
+Search...
+All gists
+Back to GitHub
+@alexaugustobr
+alexaugustobr/.gitignore
+Last active 4 months ago • Report abuse
+Code
+Revisions
+2
+Clone this repository at &lt;script src=&quot;https://gist.github.com/alexaugustobr/5c1d308be3c5820170060fa88aa4f631.js&quot;&gt;&lt;/script&gt;
+<script src="https://gist.github.com/alexaugustobr/5c1d308be3c5820170060fa88aa4f631.js"></script>
+.gitignore
+.gitignore
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.db
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+@marcello222
+Comment
+
+Leave a comment
+
+Footer
+© 2025 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
