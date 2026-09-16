@@ -6,6 +6,10 @@ Projeto de estudo e prática de e-commerce em arquitetura de microsserviços, co
 
 Em desenvolvimento.
 
+Testes: 19 testes unitários passaram (0 falhas, 0 ignorados) — executado em 2026-09-16.
+
+
+
 Este repositório está sendo evoluído para aplicar conceitos de arquitetura, modelagem de domínio e boas práticas de desenvolvimento, seguindo a linha de estudo da Algaworks.
 
 ## Objetivo do projeto
