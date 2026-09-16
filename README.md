@@ -1,22 +1,23 @@
 # ms-algashop-meta
 
-Projeto em desenvolvimento para estudo e prática de e-commerce com arquitetura de microserviços, usando Domain-Driven Design (DDD), modelagem de domínio, value objects, entidades, agregados e regras de negócio encapsuladas.
+Projeto de estudo e prática de e-commerce em arquitetura de microsserviços, com foco em Domain-Driven Design (DDD), modelagem de domínio e regras de negócio.
 
-## Status do projeto
+## Status
 
-Em andamento.
+Em desenvolvimento.
 
-Este repositório está sendo evoluído para aplicar os principais conceitos ensinados pela Algaworks em arquitetura de software, DDD e microsserviços.
+Este repositório está sendo evoluído para aplicar conceitos de arquitetura, modelagem de domínio e boas práticas de desenvolvimento, seguindo a linha de estudo da Algaworks.
 
-## Visão geral
+## Objetivo do projeto
 
-O objetivo do projeto é construir uma base para um ecommerce robusto, seguindo boas práticas de:
-- modelagem de domínio
-- composição de agregados
-- encapsulamento de regras de negócio
+Construir uma base para um ecommerce robusto, com foco em:
+- modelagem do domínio
+- entidades e value objects
+- agregados e aggregate root
+- regras de negócio encapsuladas
 - testes automatizados
-- arquitetura distribuída em microsserviços
-- evolução gradual do sistema
+- microsserviços
+- evolução gradual da arquitetura
 
 ## Estrutura do repositório
 
@@ -25,18 +26,18 @@ ms-algashop-meta/
 ├── README.md
 ├── .gitignore
 ├── docs/
-│   └── docs/
+│   └── ms-algashop-docs/
 └── microservices/
     └── ms-algashop-ordering/
 ```
 
 ### Microserviço principal
 
-- `microservices/ms-algashop-ordering` - microsserviço focado na gestão de pedidos, clientes e regras do domínio do ecommerce.
+- `microservices/ms-algashop-ordering` - microsserviço responsável pelo domínio de pedidos, clientes e regras do ecommerce.
 
 ### Documentação
 
-- `docs/` - documentação, anotações, levantamentos e materiais de apoio.
+- `docs/ms-algashop-docs` - material de apoio, diagramas e documentação do projeto.
 
 ## Tecnologias
 
@@ -47,22 +48,20 @@ ms-algashop-meta/
 - DDD
 - Microserviços
 
-## Padrões e conceitos de design que estamos aplicando
+## Padrões e conceitos em estudo
 
-A seguir estão os principais padrões e conceitos de modelagem que estamos estudando e implementando no projeto, seguindo a linha da Algaworks.
+### Entity
+Entidades com identidade própria, que mudam ao longo do tempo.
 
-### 1) Entity
-Uma entidade tem identidade própria e seu estado pode mudar ao longo do tempo.
-
-Exemplos no projeto:
+Exemplos:
 - `Customer`
 - `Order`
 - `OrderItem`
 
-### 2) Value Object
-Um value object representa um valor, não uma identidade. Normalmente é imutável e comparado pelo conteúdo.
+### Value Object
+Objetos imutáveis que representam valor, não identidade.
 
-Exemplos no projeto:
+Exemplos:
 - `Money`
 - `Quantity`
 - `Address`
@@ -70,139 +69,85 @@ Exemplos no projeto:
 - `Phone`
 - `Document`
 
-### 3) Aggregate
-Um aggregate agrupa entidades e value objects que devem ser tratados como uma unidade.
-
-No projeto:
-- `Order` é o aggregate root
-- `OrderItem` pertence ao aggregate
-
-### 4) Aggregate Root
-É a entidade principal de um aggregate, responsável por controlar a consistência interna.
+### Aggregate / Aggregate Root
+Agrupamentos de entidades e value objects tratados como uma unidade.
 
 Exemplo:
-- `Order` controla o ciclo do pedido e seus itens.
+- `Order` como aggregate root
+- `OrderItem` como parte do agregado
 
-### 5) Factory
-Factory encapsula a criação de objetos complexos, deixando explícita a intenção de criação.
+### Factory
+Criação de objetos complexos com intenção explícita.
 
-Exemplos no projeto:
+Exemplos:
 - `Order.draft(...)`
 - `OrderItem.brandNew(...)`
 
-### 6) Builder
-Builder é usado para construir objetos com muitos atributos ou com múltiplos cenários de criação.
+### Builder
+Construção de objetos com muitos parâmetros ou cenários específicos.
 
-Exemplos no projeto:
+Exemplos:
 - `Order.existing()`
 - `OrderItem.existing()`
 - `OrderItem.brandNew()`
 
-### 7) Repository
-Repository abstrai o acesso à persistência e isola o domínio da infraestrutura.
+### Repository
+Abstrai acesso e persistência do domínio.
 
-Em um próximo passo do projeto, iremos aplicar repositories para persistir entidades do domínio.
+### Domain Service
+Centraliza regras de negócio que não pertencem a uma entidade específica.
 
-### 8) Domain Service
-Domain service guarda regras de negócio que não pertencem a uma única entidade.
+### Domain Event
+Representa eventos do negócio que podem disparar ações futuras.
 
-Exemplos esperados:
-- cálculo de valor total do pedido
-- validação de disponibilidade de itens
-- regras de pagamento e entrega
+### Specification
+Representa regras de validação e seleção de domínio.
 
-### 9) Domain Event
-Domain events representam algo importante que aconteceu no domínio e pode disparar ações futuras.
+### Strategy
+Encapsula diferentes formas de executar uma regra ou algoritmo.
 
-Exemplos esperados:
-- pedido criado
-- pagamento confirmado
-- pedido cancelado
-- pedido pronto para entrega
+### Chain of Responsibility
+Permite validar regras em sequência.
 
-### 10) Specification
-Specification representa regras de seleção e validação de domínio com linguagem clara.
+### Dependency Injection
+Reduz acoplamento e melhora testes e manutenção.
 
-Exemplos esperados:
-- pedido em status pendente
-- cliente ativo
-- pedido com valor acima do mínimo
+## Arquitetura em evolução
 
-### 11) Strategy
-Strategy encapsula variações de comportamento em algoritmos diferentes.
-
-Exemplos esperados:
-- estratégias de cálculo de frete
-- estratégias de desconto
-- estratégias de pagamento
-
-### 12) Chain of Responsibility
-Esse padrão pode ser usado para executar uma sequência de validações ou regras com responsabilidade encadeada.
-
-Exemplos esperados:
-- validação de dados do pedido
-- validação de pagamento
-- validação de regras de entrega
-
-### 13) Singleton
-Quando necessário em componentes de infraestrutura ou configuração compartilhada.
-
-Exemplos esperados:
-- gerenciadores de configuração
-- componentes de infraestrutura compartilhados
-
-### 14) Adapter
-Adapter é útil para integrar peças externas sem quebrar o domínio.
-
-Exemplos esperados:
-- integração com serviço de pagamento
-- integração com envio de email
-- integração com estoque
-
-### 15) Dependency Injection
-A injeção de dependência é fundamental para manter acoplamento baixo e facilitar testes.
-
-Será aplicada em:
-- serviços de domínio
-- repositories
-- integrações externas
-- framework e infraestrutura
-
-## Padrões de aplicação no projeto
-
-O projeto está sendo evoluído em fases, seguindo esta linha de pensamento:
+A ideia do projeto é evoluir em etapas:
 
 1. modelar o domínio corretamente
 2. criar entidades e value objects
-3. garantir consistência com agregados e factory
-4. usar builders para construção de objetos complexos
-5. aplicar regras de validação com domain service e specification
-6. preparar a base para persistência e microsserviços
-7. evoluir para comunicação entre serviços e integração externa
+3. definir aggregados e regras de consistência
+4. usar builders e factories para criação segura
+5. validar regras com domain services/specifications
+6. preparar persistência e integração
+7. evoluir para microsserviços e infraestrutura na AWS
 
-## Fluxo de domínio em estudo
+## Fluxo de domínio atual
 
-A ideia central é que o domínio da aplicação seja rico e encapsule regras, em vez de espalhar lógica por camadas de infraestrutura.
+A base atual já contempla modelos de pedido, cliente, itens, valor e status.
 
-Exemplo do fluxo:
+O fluxo principal em estudo é:
 - criar pedido
-- verificar status
-- validar regras
+- validar dados
 - adicionar itens
 - calcular valor total
-- confirmar pagamento
-- encaminhar para entrega
+- pagar
+- preparar entrega
+- entregar
+- cancelar quando aplicável
 
 ## Como executar
 
-Acesse o microsserviço e execute:
+Acesse o microsserviço e rode:
 
 ```bash
 cd microservices/ms-algashop-ordering
 ./gradlew bootRun
 ```
 
-Se estiver no Windows:
+No Windows:
 
 ```powershell
 cd microservices\ms-algashop-ordering
@@ -211,18 +156,17 @@ gradlew.bat bootRun
 
 ## Próximos passos
 
-- finalizar a modelagem do domínio
-- revisar e reforçar regras de negócio
-- ampliar os value objects e validações
-- implementar repository e persistência
-- introduzir serviços de aplicação
-- evoluir para mais microsserviços
-- preparar deploy na AWS
-- implementar pipeline CI/CD e infraestrutura
+- revisar e reforçar regras de negócio do pedido
+- implementar mais regras de status e transição
+- adicionar persistência com banco de dados
+- criar repositories e serviços de aplicação
+- evoluir para novos microsserviços
+- preparar infraestrutura e deploy na AWS
+- automatizar CI/CD
 
 ## Observação
 
-Este repositório é um projeto de estudo em evolução contínua. A estrutura e os padrões podem ser ajustados conforme o domínio for ficando mais rico e conforme a arquitetura dos microsserviços for amadurecendo.
+Este repositório é um projeto de estudo em evolução contínua. A estrutura e os conceitos serão ajustados conforme o domínio for ficando mais rico e a arquitetura for amadurecendo.
 
 ## Repositório
 
